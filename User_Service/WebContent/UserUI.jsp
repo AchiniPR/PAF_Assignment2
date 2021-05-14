@@ -57,7 +57,7 @@
 	<input type="text" id="txtAddress" name="txtAddress">
 	</div>
 	
-	<!-- GENDER -->
+	<!-- GENDER --
 	<div class="input-group input-group-sm mb-3">
  	<div class="input-group-prepend">
  	<span class="input-group-text" id="lblName">Gender: </span>
@@ -66,21 +66,15 @@
 	<input type="radio" id="rdoGenderMale" name="rdoGender" value="Male">
  	&nbsp;&nbsp;Female 
 	<input type="radio" id="rdoGenderFemale" name="rdoGender" value="Female">
- 	</div>
+ 	</div>>
  	
  	<!-- USER TYPE -->
  	<div class="input-group input-group-sm mb-3">
- 	<div class="input-group-prepend">
+	<div class="input-group-prepend">
  	<span class="input-group-text" id="lblName">User Type: </span>
- 	</div>
- 	<select id="ddlUserType" name="ddlUserType">
- 	<option value="0">--Select User Type--</option>
- 	<option value="1">Admin</option>
- 	<option value="2">Buyer</option>
- 	<option value="3">Researcher</option>
- 	<option value="4">Funder</option>
- 	</select>
- 	</div>
+	</div>
+	<input type="text" id="txtAddress" name="txtAddress">
+	</div>
  	</form>
 				
 				<div id="alertSuccess" class="alert alert-success"> </div>

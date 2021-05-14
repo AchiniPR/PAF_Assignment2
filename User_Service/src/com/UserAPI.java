@@ -1,3 +1,4 @@
+
 package com;
 
 import com.User;
@@ -19,14 +20,14 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class UsertService
  */
 @WebServlet("/UserService")
-public class UserService extends HttpServlet {
+public class UserAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	User userObj = new User();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserService() {
+    public UserAPI() {
         super();
         // TODO Auto-generated constructor stub
     }

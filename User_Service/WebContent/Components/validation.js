@@ -77,9 +77,12 @@ function onUserSaveComplete(response, status)
 $(document).on("click", ".btnUpdate", function(event) 
 {     
 	$("#hidUserIDSave").val($(this).closest("tr").find('#hidUserIDUpdate').val());     
-	$("#pmethod").val($(this).closest("tr").find('td:eq(0)').text());     
-	$("#pdate").val($(this).closest("tr").find('td:eq(1)').text());     
-	$("#pamount").val($(this).closest("tr").find('td:eq(2)').text());     
+	$("#uname").val($(this).closest("tr").find('td:eq(0)').text());     
+	$("#uemail").val($(this).closest("tr").find('td:eq(1)').text());     
+	$("#contactno").val($(this).closest("tr").find('td:eq(2)').text());
+	$("#uaddress").val($(this).closest("tr").find('td:eq(2)').text()); 
+	$("#upassword").val($(this).closest("tr").find('td:eq(2)').text());
+	$("#usertype").val($(this).closest("tr").find('td:eq(2)').text());    
 }); 
 
 
@@ -90,18 +93,18 @@ $(document).on("click", ".btnRemove", function(event)
 {  
 	$.ajax(  
 	{   
-		url : "PaymentService",   
+		url : "UserService",   
 		type : "DELETE",   
-		data : "pid=" + $(this).data("paymentid"),   
+		data : "pid=" + $(this).data("userID"),   
 		dataType : "text",   
 		complete : function(response, status)   
 		{    
-			onPaymentDeleteComplete(response.responseText, status);   
+			onUserDeleteComplete(response.responseText, status);   
 		}  
 	}); 
 }); 
 
-function onPaymentDeleteComplete(response, status) 
+function onUserDeleteComplete(response, status) 
 {  
 	if (status == "success")  
 	{   
@@ -134,27 +137,38 @@ function onPaymentDeleteComplete(response, status)
 }
  
 // CLIENT-MODEL========================================================================= 
-function validatePaymentForm() 
+function validateUserForm() 
 {  
 	// NAME  
-	if ($("#pmethod").val().trim() == "")  
+	if ($("#uname").val().trim() == "")  
 	{   
-		return "Insert Payment Method.";  
+		return "Insert user name.";  
 	} 
 
-	// DESCRIPTION------------------------  
-	if ($("#pdate").val().trim() == "")  
+	// EMAIL------------------------  
+	if ($("#uemail").val().trim() == "")  
 	{   
-		return "Insert Date.";  
+		return "Insert Email.";  
 	} 
 	
 	
-	//AMOUNT-------------------------------
-	 var tmpAmount = $("#pamount").val().trim();
-	if (!$.isNumeric(tmpAmount)) 
-	 {
-	 return "Insert Amount.";
-	 }
+	//CONTACTNO-------------------------------
+	 if ($("#contactno").val().trim() == "")  
+	{   
+		return "Insert contact no.";  
+	} 
+	
+	//ADDRESS
+	if ($("#uaddress").val().trim() == "")  
+	{   
+		return "Insert Address.";  
+	} 
+	
+	//UserType
+	if ($("#usertype").val().trim() == "")  
+	{   
+		return "Insert user type.";  
+	} 
 
 	return true; 
 }
